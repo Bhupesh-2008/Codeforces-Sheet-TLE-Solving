@@ -12,7 +12,18 @@ int main(){
         cin>>x>>s;
         int ans=0;
 
-        if(x.find(s)) cout<<ans<<"\n";
+        if(x.find(s) != std::string::npos){
+            cout<<0<<"\n";
+        }else{
+            int cnt=0;
+            while(x.find(s)== std::string::npos && cnt<=5){
+                x+=x;
+                cnt++;
+            }
+            if(x.find(s) != std::string::npos){
+                cout<<cnt<<"\n";
+            }else cout<<-1<<"\n";
+        }
     }
 
     return 0;
