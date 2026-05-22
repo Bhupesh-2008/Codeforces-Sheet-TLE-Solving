@@ -18,17 +18,17 @@ int main() {
     int t = 0;
     cin >> t; 
     while (t--) {
-        ll n;
-        cin>>n;
+        ll a,b,n;
+        cin>>a>>b>>n;
+        vll v(n);
+        for(ll i=0; i<n; i++) cin>>v[i];
 
-        ll l=1;
-        for(ll i=1;; i++){
-            if( n%i!=0){
-                l=i-1;
-                break;
-            }
+        ll ans=b;
+        for(int i=0; i<n; i++){
+            b+=min(v[i],a-1);
         }
-        cout<<l<<"\n";
+
+        cout<<b<<"\n";
     }
 
     return 0;

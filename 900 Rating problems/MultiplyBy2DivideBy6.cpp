@@ -21,14 +21,26 @@ int main() {
         ll n;
         cin>>n;
 
-        ll l=1;
-        for(ll i=1;; i++){
-            if( n%i!=0){
-                l=i-1;
-                break;
+        ll a=n;
+        int two=0;int three=0;
+        while(n%2==0){
+            n/=2;
+            two++;
+        }
+        while(n%3==0){
+            n/=3;
+            three++;
+        }
+
+        if(n>1) cout<<-1<<"\n";
+        else if(a==1) cout<<"0\n";
+        else{
+            if(two==three) cout<<two<<"\n";
+            else if(two>three) cout<<-1<<"\n";
+            else{
+                cout<<2*three-two<<"\n";
             }
         }
-        cout<<l<<"\n";
     }
 
     return 0;
