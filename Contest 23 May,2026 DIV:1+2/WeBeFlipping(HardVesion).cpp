@@ -16,7 +16,7 @@ int main() {
     fast_io; // Optimization for competitive programming
 
     int t = 0;
-    cin >> t; 
+    cin >> t;
     while(t--){
         int n;
         cin>>n;
