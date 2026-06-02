@@ -18,7 +18,18 @@ int main() {
     int t = 0;
     cin >> t; 
     while (t--) {
-         
+        ll n;
+        cin>>n;
+        ll one=0; ll zer=0;
+
+        vi v(n);
+        for(ll i=0; i<n; i++) {
+            cin>>v[i];
+            if(v[i]==1) one++;
+            if(v[i]==0) zer++;
+        }
+
+        cout<<one*(1LL<<zer)<<"\n";
     }
 
     return 0;
