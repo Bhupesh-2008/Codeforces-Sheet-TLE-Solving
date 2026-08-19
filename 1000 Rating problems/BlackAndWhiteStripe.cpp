@@ -1,0 +1,47 @@
+
+#include <bits/stdc++.h>
+using namespace std;
+
+// Shorthand for common types and containers
+using ll = long long;
+using vi = vector<int>;
+using vll = vector<ll> ;
+using pii = pair<int, int>;
+
+#define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+#define all(x) (x).begin(), (x).end()
+#define pb push_back
+#define sz(x) ((int)(x).size())
+
+int main() {
+    fast_io; // Optimization for competitive programming
+
+    int t = 0;
+    cin >> t; 
+    while (t--) {
+        ll n,k=0;
+        cin>>n>>k;
+        string s;
+        cin>>s;
+
+        ll w=0;
+        for(ll i=0;i<k;i++){
+            if(s[i]=='W') w++;
+        }
+
+        ll minW=w;
+        for(ll i=k;i<n; i++){
+            if(s[i-k]=='W'){
+                w--;
+            }
+            if(s[i]=='W') w++;
+
+            minW= min(w,minW);
+        }
+
+        cout<<minW<<endl;
+
+    }
+
+    return 0;
+}
