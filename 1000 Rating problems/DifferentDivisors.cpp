@@ -1,28 +1,39 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// Shorthand for common types and containers
-using ll = long long;
-using vi = vector<int>;
-using vll = vector<ll> ;
-using pii = pair<int, int>;
+int main(){
+	vector<long long> primes;
+	for (long long i = 2; i <= 100000; i++){
+		bool is_prime = true;
+		for(long long j=2; j*j<=i; j++){
+			if(i%j==0){
+				is_prime = false;
+				break;
+			}
+		}
+		if(is_prime) primes.push_back(i);
+	}
 
-#define fast_io ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-#define all(x) (x).begin(), (x).end()
-#define pb push_back
-#define sz(x) ((int)(x).size())
-
-int main() {
-    fast_io; // Optimization for competitive programming
-
-    int t = 0;
-    cin >> t; 
-    while (t--) {
-        int d=0;
-        cin>>d;
-        vll v;
-
-    }
-
-    return 0;
+	int t;
+	cin >> t;
+    while (t--){
+		long long d;
+		cin >> d;
+		long long p = -1;
+		for(long long i=0;i<primes.size();i++){
+			if(primes[i]>=(1+d)){
+				p=primes[i];
+				break;
+			}
+		}
+		long long q=-1;
+		for(long long i=0; i<primes.size(); i++){
+			if(primes[i]>=(p+d)){
+				q = primes[i];
+				break;
+			}
+		}
+		long long a=min(1LL*p*p*p, 1LL*p*q);
+		cout<<a<<endl;
+	}
 }
